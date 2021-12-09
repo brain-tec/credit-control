@@ -43,7 +43,43 @@ class TestPartnerSaleRisk(SavepointCase):
         self.assertAlmostEqual(self.partner.risk_sale_order, 100.0)
         self.assertFalse(self.partner.risk_exception)
         self.partner.risk_sale_order_limit = 99.0
+        self.assertTrue(self.partner.risk_exception)
+        sale_order2 = self.sale_order.copy()
+        wiz_dic = sale_order2.action_confirm()
+        wiz = self.env[wiz_dic["res_model"]].browse(wiz_dic["res_id"])
+        self.assertEqual(wiz.exception_msg, "Financial risk exceeded.\n")
+        self.partner.risk_sale_order_limit = 150.0
+        wiz_dic = sale_order2.action_confirm()
+        wiz = self.env[wiz_dic["res_model"]].browse(wiz_dic["res_id"])
+        self.assertEqual(
+            wiz.exception_msg, "This sale order exceeds the sales orders risk.\n"
+        )
+        self.partner.risk_sale_order_limit = 0.0
         self.partner.risk_sale_order_include = True
+        self.partner.credit_limit = 100.0
+        wiz_dic = sale_order2.action_confirm()
+        wiz = self.env[wiz_dic["res_model"]].browse(wiz_dic["res_id"])
+        self.assertEqual(
+            wiz.exception_msg, "This sale order exceeds the financial risk.\n"
+        )
+        self.assertTrue(self.partner.risk_allow_edit)
+        wiz.button_continue()
+        self.assertAlmostEqual(self.partner.risk_sale_order, 200.0)
+
+    def test_sale_order_auto_done(self):
+        self.env["ir.config_parameter"].create(
+            {"key": "sale.auto_done_setting", "value": "True"}
+        )
+        self.env["ir.config_parameter"].create(
+            {
+                "key": "sale_financial_risk.include_risk_sale_order_done",
+                "value": "True",
+            }
+        )
+        self.sale_order.action_confirm()
+        self.assertAlmostEqual(self.partner.risk_sale_order, 100.0)
+        self.assertFalse(self.partner.risk_exception)
+        self.partner.risk_sale_order_limit = 99.0
         self.assertTrue(self.partner.risk_exception)
         sale_order2 = self.sale_order.copy()
         wiz_dic = sale_order2.action_confirm()
@@ -74,7 +110,6 @@ class TestPartnerSaleRisk(SavepointCase):
         self.assertFalse(self.partner.risk_exception)
         # If we set a risk_sale_order_limit to 99, risk_exception must be True
         self.partner.risk_sale_order_limit = 99.0
-        self.partner.risk_sale_order_include = True
         self.assertTrue(self.partner.risk_exception)
         # If we create and validate an invoice from the sale order then the
         # amount to be invoiced must be 0 and risk_exception must be False
