@@ -1,7 +1,7 @@
 # Copyright 2016-2018 Tecnativa - Carlos Dauden
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo.odoo.tests import TransactionCase
+from odoo.tests import TransactionCase
 
 
 class TestPartnerSaleRisk(TransactionCase):
@@ -67,6 +67,44 @@ class TestPartnerSaleRisk(TransactionCase):
         wiz.button_continue()
         self.assertAlmostEqual(self.partner.risk_sale_order, 200.0)
 
+    def test_sale_order_auto_done(self):
+        self.env["ir.config_parameter"].create(
+            {"key": "sale.auto_done_setting", "value": "True"}
+        )
+        self.env["ir.config_parameter"].create(
+            {
+                "key": "sale_financial_risk.include_risk_sale_order_done",
+                "value": "True",
+            }
+        )
+        self.sale_order.action_confirm()
+        self.partner.risk_sale_order_include = True
+        self.assertAlmostEqual(self.partner.risk_sale_order, 100.0)
+        self.assertFalse(self.partner.risk_exception)
+        self.partner.risk_sale_order_limit = 99.0
+        self.assertTrue(self.partner.risk_exception)
+        sale_order2 = self.sale_order.copy()
+        wiz_dic = sale_order2.action_confirm()
+        wiz = self.env[wiz_dic["res_model"]].browse(wiz_dic["res_id"])
+        self.assertEqual(wiz.exception_msg, "Financial risk exceeded.\n")
+        self.partner.risk_sale_order_limit = 150.0
+        wiz_dic = sale_order2.action_confirm()
+        wiz = self.env[wiz_dic["res_model"]].browse(wiz_dic["res_id"])
+        self.assertEqual(
+            wiz.exception_msg, "This sale order exceeds the sales orders risk.\n"
+        )
+        self.partner.risk_sale_order_limit = 0.0
+        self.partner.risk_sale_order_include = True
+        self.partner.credit_limit = 100.0
+        wiz_dic = sale_order2.action_confirm()
+        wiz = self.env[wiz_dic["res_model"]].browse(wiz_dic["res_id"])
+        self.assertEqual(
+            wiz.exception_msg, "This sale order exceeds the financial risk.\n"
+        )
+        self.assertTrue(self.partner.risk_allow_edit)
+        wiz.button_continue()
+        self.assertAlmostEqual(self.partner.risk_sale_order, 200.0)
+
     def test_compute_risk_amount(self):
         self.sale_order.action_confirm()
         # Now the amount to be invoiced must 100
@@ -95,10 +133,18 @@ class TestPartnerSaleRisk(TransactionCase):
         # After that, if we create and validate a Credit Note from the invoice
         # then the amount to be invoiced must be 100 again
         # and risk_exception must be True
+        journal = self.env["account.journal"].search(
+            [
+                ("type", "=", "sale"),
+                ("company_id", "=", self.env.company.id),
+            ]
+        )
         ref_wiz_obj = self.env["account.move.reversal"].with_context(
             active_model="account.move", active_ids=[invoice.id]
         )
-        ref_wiz = ref_wiz_obj.create({"reason": "testing", "refund_method": "modify"})
+        ref_wiz = ref_wiz_obj.create(
+            {"reason": "testing", "refund_method": "modify", "journal_id": journal.id}
+        )
         res = ref_wiz.reverse_moves()
         self.assertAlmostEqual(self.partner.risk_invoice_draft, 100.0)
         self.assertAlmostEqual(self.partner.risk_sale_order, 0.0)
