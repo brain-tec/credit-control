@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: partner-contact (9.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-20 03:40+0000\n"
-"PO-Revision-Date: 2022-07-05 17:05+0000\n"
+"PO-Revision-Date: 2022-10-18 17:44+0000\n"
 "Last-Translator: ClementChaumienneC2C <clement.chaumienne@camptocamp.com>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-partner-contact-9-0/"
 "language/fr/)\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: account_financial_risk
 #: model:ir.model.fields,field_description:account_financial_risk.field_res_partner__move_line_ids
@@ -42,13 +42,16 @@ msgstr "Autoriser la validation de la facture sur le risque"
 msgid ""
 "Always allow the validation of draft invoices.\n"
 "                            Useful when the flow comes from sales orders and "
-"the over-risk\n"
+"the\n"
+"                                over-risk\n"
 "                            has already been allowed when confirming these."
 msgstr ""
-"Toujours autoriser la validation des factures brouillon.\n"
-"                            Utile quand le flux de validation vient des "
-"commandes de ventes et du dépassement de limite\n"
-"                            a déjà été autorisé quand on les confirme."
+"Toujours autoriser la validation des factures brouillons.\n"
+"                            Utile quand le flux vient des commandes de "
+"ventes et que\n"
+"                                le sur-risque\n"
+"                            a déjà été autorisé quand la commande a été "
+"confirmée."
 
 #. module: account_financial_risk
 #: model:ir.model.fields,help:account_financial_risk.field_res_company__allow_overrisk_invoice_validation
@@ -58,7 +61,7 @@ msgid ""
 "from sales orders and the over-risk has already been allowed when confirming "
 "these."
 msgstr ""
-"Toujours permettre la validation des projets de factures. Utile lorsque le "
+"Toujours permettre la validation des factures en brouillon. Utile lorsque le "
 "flux provient de commandes clients et que le sur-risque a déjà été autorisé "
 "lors de la confirmation de celles-ci."
 
@@ -84,7 +87,6 @@ msgid "Companies"
 msgstr "Sociétés"
 
 #. module: account_financial_risk
-#: model:ir.model.fields,field_description:account_financial_risk.field_account_move__company_currency_id
 #: model:ir.model.fields.selection,name:account_financial_risk.selection__res_partner__credit_currency__company
 msgid "Company Currency"
 msgstr "Devise de l'entreprise"
@@ -147,12 +149,13 @@ msgstr "Client"
 msgid ""
 "Days after due date to set an invoice as unpaid.\n"
 "                            The change of this field recompute all partners "
-"risk, be patient."
+"risk, be\n"
+"                                patient."
 msgstr ""
-"Nombre de jours après la date d'échéance pour mettre une facture comme "
-"impayée.\n"
-" Le changement de ce champ recalcule le risque de tous les partenaires, "
-"soyez patient."
+"Journées après la mdate d'échéance pour marquer une facture comme impayée.\n"
+"                            Un changement dans ce champ recalcule tous les "
+"risques sur les contacts, soyez\n"
+"                                patient."
 
 #. module: account_financial_risk
 #: model:ir.model.fields,help:account_financial_risk.field_res_company__invoice_unpaid_margin
@@ -223,7 +226,7 @@ msgid ""
 "Margin set in account settings."
 msgstr ""
 "Calcul complet du risque.\n"
-"Montant restant à payer sur les écritures comptables non rapprochés avec un "
+"Montant restant à payer sur les écritures comptables non rapprochées avec un "
 "compte client distinct et dont la date d'échéance n'est pas dépassée en "
 "prenant en compte la marge définie dans les paramètres du compte."
 
@@ -238,7 +241,7 @@ msgid ""
 msgstr ""
 "Calcul complet du risque.\n"
 "Montant restant à payer sur les écritures comptables non rapprochés avec le "
-"même compte client et dont la date d'échéance est  dépassée en prenant en "
+"même compte client et dont la date d'échéance est dépassée en prenant en "
 "compte la marge définie dans les paramètres du compte."
 
 #. module: account_financial_risk
@@ -252,8 +255,8 @@ msgid ""
 msgstr ""
 "Calcul complet du risque.\n"
 "Montant restant à payer sur les écritures comptables non rapprochés avec le "
-"même compte client et dont la date d'échéance est  dépassée en prenant en "
-"compte la marge définie dans les paramètres du compte."
+"même compte client et dont la date d'échéance n'est pas dépassée en prenant "
+"en compte la marge définie dans les paramètres du compte."
 
 #. module: account_financial_risk
 #: model_terms:ir.ui.view,arch_db:account_financial_risk.res_partner_view_risk
@@ -308,8 +311,8 @@ msgstr "Indique si le risque du partenaire a été dépassé"
 
 #. module: account_financial_risk
 #: model:ir.model,name:account_financial_risk.model_account_move
-msgid "Journal Entries"
-msgstr ""
+msgid "Journal Entry"
+msgstr "Pièces comptables"
 
 #. module: account_financial_risk
 #: model:ir.model.fields,field_description:account_financial_risk.field_partner_risk_exceeded_wiz____last_update
@@ -382,7 +385,6 @@ msgstr "Assistant pour risque du partenaire dépassé"
 
 #. module: account_financial_risk
 #: model:res.groups,name:account_financial_risk.group_overpass_partner_risk_exception
-#, fuzzy
 msgid "Partner Risk Manager"
 msgstr "Responsable des risques partenaires"
 
@@ -399,7 +401,6 @@ msgstr "Devise de la liste de prix"
 
 #. module: account_financial_risk
 #: model:ir.model.fields.selection,name:account_financial_risk.selection__res_partner__credit_currency__receivable
-#, fuzzy
 msgid "Receivable Currency"
 msgstr "Devise acceptée"
 
@@ -412,8 +413,8 @@ msgid ""
 "set in account settings."
 msgstr ""
 "Montant restant à payer sur les écritures comptables non rapprochées avec un "
-"compte client  distinct et dont la date d'échéance est dépassée en prenant "
-"en compte la marge définie dans les paramètres du compte."
+"compte client distinct et dont la date d'échéance est dépassée en prenant en "
+"compte la marge définie dans les paramètres du compte."
 
 #. module: account_financial_risk
 #: model:ir.model.fields,help:account_financial_risk.field_res_partner__risk_account_amount
@@ -424,8 +425,8 @@ msgid ""
 "Margin set in account settings."
 msgstr ""
 "Montant restant à payer sur les écritures comptables non rapprochées avec un "
-"compte client  distinct et dont la date d'échéance est dépassée en prenant "
-"en compte la marge définie dans les paramètres du compte."
+"compte client distinct et dont la date d'échéance n'est pas dépassée en "
+"prenant en compte la marge définie dans les paramètres du compte."
 
 #. module: account_financial_risk
 #: model:ir.model.fields,help:account_financial_risk.field_res_partner__risk_invoice_unpaid
@@ -458,22 +459,32 @@ msgid "Risk Allow Edit"
 msgstr "Modifier le risque autorisé"
 
 #. module: account_financial_risk
+#: model:ir.model.fields,field_description:account_financial_risk.field_account_bank_statement_line__risk_amount_total_currency
 #: model:ir.model.fields,field_description:account_financial_risk.field_account_move__risk_amount_total_currency
+#: model:ir.model.fields,field_description:account_financial_risk.field_account_payment__risk_amount_total_currency
 msgid "Risk Amount Total"
 msgstr "Montant total du risque"
 
 #. module: account_financial_risk
+#: model:ir.model.fields,field_description:account_financial_risk.field_account_bank_statement_line__risk_currency_id
 #: model:ir.model.fields,field_description:account_financial_risk.field_account_move__risk_currency_id
+#: model:ir.model.fields,field_description:account_financial_risk.field_account_payment__risk_currency_id
 #: model:ir.model.fields,field_description:account_financial_risk.field_res_partner__risk_currency_id
 #: model:ir.model.fields,field_description:account_financial_risk.field_res_users__risk_currency_id
 msgid "Risk Currency"
-msgstr ""
+msgstr "Devises du risque financier"
 
 #. module: account_financial_risk
 #: model:ir.model.fields,field_description:account_financial_risk.field_res_partner__risk_exception
 #: model:ir.model.fields,field_description:account_financial_risk.field_res_users__risk_exception
 msgid "Risk Exception"
 msgstr "Exception de risque"
+
+#. module: account_financial_risk
+#: model:ir.model.fields,field_description:account_financial_risk.field_res_partner__risk_amount_exceeded
+#: model:ir.model.fields,field_description:account_financial_risk.field_res_users__risk_amount_exceeded
+msgid "Risk Over Limit"
+msgstr "Sur-Limite du risque"
 
 #. module: account_financial_risk
 #: model_terms:ir.ui.view,arch_db:account_financial_risk.partner_risk_exceeded_wizard
@@ -504,6 +515,17 @@ msgstr "Limite Spécifique"
 #: model:ir.model.fields,help:account_financial_risk.field_res_users__risk_total
 msgid "Sum of total risk included"
 msgstr "Somme du risque total inclus"
+
+#. module: account_financial_risk
+#: code:addons/account_financial_risk/models/account_invoice.py:0
+#, python-format
+msgid ""
+"The partner %s is in risk exception.\n"
+"You must post his invoices from form view to allow over risk"
+msgstr ""
+"Le partenaire %s a un risque financier.\n"
+"Vous devez confirmer ses factures depuis la vue formulaire opur autoriser le "
+"sur-risque"
 
 #. module: account_financial_risk
 #: model_terms:ir.ui.view,arch_db:account_financial_risk.partner_risk_exceeded_wizard
@@ -565,6 +587,33 @@ msgstr "Total des factures impayées / solde du capital"
 #: model:ir.model.fields,help:account_financial_risk.field_res_users__risk_invoice_draft
 msgid "Total amount of invoices in Draft or Pro-forma state"
 msgstr "Montant total des factures brouillon ou pro forma"
+
+#. module: account_financial_risk
+#: model:ir.model,name:account_financial_risk.model_validate_account_move
+msgid "Validate Account Move"
+msgstr "Valider les écritures comptables"
+
+#~ msgid ""
+#~ "Always allow the validation of draft invoices.\n"
+#~ "                            Useful when the flow comes from sales orders "
+#~ "and the over-risk\n"
+#~ "                            has already been allowed when confirming "
+#~ "these."
+#~ msgstr ""
+#~ "Toujours autoriser la validation des factures brouillon.\n"
+#~ "                            Utile quand le flux de validation vient des "
+#~ "commandes de ventes et du dépassement de limite\n"
+#~ "                            a déjà été autorisé quand on les confirme."
+
+#~ msgid ""
+#~ "Days after due date to set an invoice as unpaid.\n"
+#~ "                            The change of this field recompute all "
+#~ "partners risk, be patient."
+#~ msgstr ""
+#~ "Nombre de jours après la date d'échéance pour mettre une facture comme "
+#~ "impayée.\n"
+#~ " Le changement de ce champ recalcule le risque de tous les partenaires, "
+#~ "soyez patient."
 
 #~ msgid ""
 #~ "<strong>If you are an Billing Manager you can use Confirm ALL Invoices "
