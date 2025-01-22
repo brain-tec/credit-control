@@ -27,6 +27,7 @@ addon | version | maintainers | summary
 [account_payment_return_financial_risk](account_payment_return_financial_risk/) | 15.0.1.0.2 |  | Partner Payment Return Risk
 [partner_risk_insurance](partner_risk_insurance/) | 15.0.3.0.1 | [![Daniel-CA](https://github.com/Daniel-CA.png?size=30px)](https://github.com/Daniel-CA) [![sergio-teruel](https://github.com/sergio-teruel.png?size=30px)](https://github.com/sergio-teruel) [![omar7r](https://github.com/omar7r.png?size=30px)](https://github.com/omar7r) [![Tardo](https://github.com/Tardo.png?size=30px)](https://github.com/Tardo) [![Shide](https://github.com/Shide.png?size=30px)](https://github.com/Shide) | Risk insurance partner information
 [sale_financial_risk](sale_financial_risk/) | 15.0.1.2.4 |  | Manage partner risk in sales orders
+[sale_financial_risk_confirm_action](sale_financial_risk_confirm_action/) | 15.0.1.0.0 | [![carlosdauden](https://github.com/carlosdauden.png?size=30px)](https://github.com/carlosdauden) | Allow confirm sale order in risk exception but changing several sale order fields
 [sale_financial_risk_info](sale_financial_risk_info/) | 15.0.1.0.1 |  | Adds risk consumption info in sales orders.
 [sale_payment_sheet_financial_risk](sale_payment_sheet_financial_risk/) | 15.0.1.0.1 |  | Manage partner risk in sale payment sheet
 
