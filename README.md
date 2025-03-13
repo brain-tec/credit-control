@@ -22,6 +22,8 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [account_financial_risk](account_financial_risk/) | 18.0.1.0.0 | [![carlosdauden](https://github.com/carlosdauden.png?size=30px)](https://github.com/carlosdauden) | Manage customer risk
+[sale_financial_risk](sale_financial_risk/) | 18.0.1.0.0 |  | Manage partner risk in sales orders
+[sale_financial_risk_info](sale_financial_risk_info/) | 18.0.1.0.0 |  | Adds risk consumption info in sales orders.
 
 [//]: # (end addons)
 
