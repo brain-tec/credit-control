@@ -21,6 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[account_credit_control](account_credit_control/) | 18.0.1.0.0 |  | Account Credit Control
 [account_financial_risk](account_financial_risk/) | 18.0.1.0.1 | [![carlosdauden](https://github.com/carlosdauden.png?size=30px)](https://github.com/carlosdauden) | Manage customer risk
 [account_invoice_overdue_warn](account_invoice_overdue_warn/) | 18.0.1.0.0 | [![alexis-via](https://github.com/alexis-via.png?size=30px)](https://github.com/alexis-via) | Show warning on customer form view if it has overdue invoices
 [sale_financial_risk](sale_financial_risk/) | 18.0.1.0.0 |  | Manage partner risk in sales orders
