@@ -1,8 +1,9 @@
 [project]
 name = "odoo-addons-oca-credit-control"
-version = "19.0.20251118.0"
+version = "19.0.20260316.0"
 dependencies = [
     "odoo-addon-account_financial_risk==19.0.*",
+    "odoo-addon-sale_financial_risk==19.0.*",
 ]
 classifiers=[
     "Programming Language :: Python",
