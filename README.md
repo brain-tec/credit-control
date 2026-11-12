@@ -1,4 +1,7 @@
 
+[![Support the OCA](https://odoo-community.org/readme-banner-image)](https://odoo-community.org/get-involved?utm_source=repo-readme)
+
+# credit-control
 [![Runboat](https://img.shields.io/badge/runboat-Try%20me-875A7B.png)](https://runboat.odoo-community.org/builds?repo=OCA/credit-control&target_branch=19.0)
 [![Pre-commit Status](https://github.com/OCA/credit-control/actions/workflows/pre-commit.yml/badge.svg?branch=19.0)](https://github.com/OCA/credit-control/actions/workflows/pre-commit.yml?query=branch%3A19.0)
 [![Build Status](https://github.com/OCA/credit-control/actions/workflows/test.yml/badge.svg?branch=19.0)](https://github.com/OCA/credit-control/actions/workflows/test.yml?query=branch%3A19.0)
@@ -6,8 +9,6 @@
 [![Translation Status](https://translation.odoo-community.org/widgets/credit-control-19-0/-/svg-badge.svg)](https://translation.odoo-community.org/engage/credit-control-19-0/?utm_source=widget)
 
 <!-- /!\ do not modify above this line -->
-
-# credit-control
 
 credit-control
 
@@ -22,7 +23,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [account_credit_control](account_credit_control/) | 19.0.1.0.2 |  | Account Credit Control
-[account_financial_risk](account_financial_risk/) | 19.0.1.0.1 | <a href='https://github.com/carlosdauden'><img src='https://github.com/carlosdauden.png' width='32' height='32' style='border-radius:50%;' alt='carlosdauden'/></a> | Manage customer risk
+[account_financial_risk](account_financial_risk/) | 19.0.1.0.2 | <a href='https://github.com/carlosdauden'><img src='https://github.com/carlosdauden.png' width='32' height='32' style='border-radius:50%;' alt='carlosdauden'/></a> | Manage customer risk
 [account_invoice_overdue_warn](account_invoice_overdue_warn/) | 19.0.1.0.0 | <a href='https://github.com/alexis-via'><img src='https://github.com/alexis-via.png' width='32' height='32' style='border-radius:50%;' alt='alexis-via'/></a> | Show warning on customer form view if it has overdue invoices
 [account_invoice_overdue_warn_sale](account_invoice_overdue_warn_sale/) | 19.0.1.0.0 | <a href='https://github.com/alexis-via'><img src='https://github.com/alexis-via.png' width='32' height='32' style='border-radius:50%;' alt='alexis-via'/></a> | Show overdue warning on sale order form view
 [sale_financial_risk](sale_financial_risk/) | 19.0.1.0.1 |  | Manage partner risk in sales orders
